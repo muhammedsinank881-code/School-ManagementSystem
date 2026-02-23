@@ -1,4 +1,4 @@
-import Welcom from '../../../assets/admin/Welcom.svg'
+import Welcom from '../../../assets/admin/welcome.svg'
 
 const WelcomeCard = () => {
   return (
