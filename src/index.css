@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563EB;
+  --color-primaryLight: #E8F0FF;
+  --color-bg: #F5F7FB;
+  --color-textMain: #1F2937;
+  --color-textMuted: #6B7280;
+  --color-border: #E5E7EB;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
