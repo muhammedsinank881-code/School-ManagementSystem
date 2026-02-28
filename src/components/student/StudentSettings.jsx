@@ -39,16 +39,9 @@ const StudentSettings = () => {
                   alt="student profile"
                   className="w-28 h-28 rounded-full object-cover"
                 />
-                <div className="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full cursor-pointer">
-                  <FaCamera size={12} />
-                </div>
               </div>
 
               <p className="mt-3 font-medium text-sm">Profile Photo</p>
-
-              <button className="text-red-500 text-sm mt-1 hover:underline">
-                Remove photo
-              </button>
             </div>
 
             {/* RIGHT SIDE */}
@@ -112,13 +105,6 @@ const StudentSettings = () => {
                   className="w-full mt-2 p-3 bg-gray-200 rounded-md cursor-not-allowed"
                   readOnly
                 />
-              </div>
-
-              {/* Buttons – UI only */}
-              <div className="pt-4 flex gap-3">
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-500 transition">
-                  Edit
-                </button>
               </div>
 
             </div>

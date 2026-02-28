@@ -1,33 +1,23 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../store/userSlice";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import { BiHomeAlt2 } from "react-icons/bi";
 import { PiStudentFill } from "react-icons/pi";
-import { MdEventAvailable } from "react-icons/md";
+import { MdClass, MdEventAvailable } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 import { IoMdContacts } from "react-icons/io";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { LuLogOut } from "react-icons/lu";
+import { NavLink, useNavigate } from "react-router";
+import { FaUserCheck } from "react-icons/fa";
 
 
-const AdminSideBar= ({ closeSidebar }) => {
-
-  const dispatch = useDispatch();
-const navigate = useNavigate();
+const TeachSidebar= ({ closeSidebar }) => {
   const SidebarIcons = [
-    { id: 1, name: "Dashboard", icon: <BiHomeAlt2 />, path: "/admin-dashboard" },
-    { id: 2, name: "Teachers", icon: <IoMdContacts />, path: "/admin-dashboard/teachers" },
-    { id: 3, name: "Students", icon: <PiStudentFill />, path: "/admin-dashboard/students" },
-    { id: 4, name: "Events", icon: <MdEventAvailable />, path: "/admin-dashboard/events" },
-    { id: 5, name: "Settings", icon: <IoMdSettings />, path: "/admin-dashboard/settings" },
+    { id: 1, name: "Dashboard", icon: <BiHomeAlt2 />, path: "/teachers-dashboard" },
+    { id: 2, name: "Students", icon: <IoMdContacts />, path: "/teachers-dashboard/students" },
+    { id: 3, name: "Timetable", icon: <MdClass />, path: "/teachers-dashboard/timetable" },
+    { id: 4, name: "Events", icon: <MdEventAvailable />, path: "/teachers-dashboard/events" },
+    { id: 5, name: "Attendace", icon: <FaUserCheck/>, path: "/teachers-dashboard/attendace" },  
+    { id: 6, name: "settings", icon: <IoMdSettings />, path: "/teachers-dashboard/settings" },  
   ];
-
-  const handleLogout = () => {
-  dispatch(logout());
-  navigate("/login");
-};
   return (
     <div className="flex flex-col justify-between  p-3 bg-gray-700 text-white h-full w-full rounded-2xl">
       <div className=" ">
@@ -41,7 +31,7 @@ const navigate = useNavigate();
             <NavLink
               key={items.id}
               to={items.path}
-              end={items.path === '/admin-dashboard'}
+              end={items.path === '/teachers-dashboard'}
               onClick={closeSidebar}
               className={({ isActive }) =>
                 `flex items-center gap-3 p-2 w-full rounded-md 
@@ -55,10 +45,9 @@ const navigate = useNavigate();
         </div>
       </div>
 
-      <div onClick={handleLogout}
-      className="flex items-center gap-3 w-full p-2 hover:bg-blue-600 rounded-md"><LuLogOut />Logout</div>
+      <div className="flex items-center gap-3 w-full p-2 hover:bg-blue-600 rounded-md"><LuLogOut />Logout</div>
     </div>
   );
 };
 
-export default AdminSideBar;
+export default TeachSidebar;

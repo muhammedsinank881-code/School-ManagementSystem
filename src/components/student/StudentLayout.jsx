@@ -3,7 +3,7 @@ import { useState } from 'react'
 import StudentSidebar from '../student/StudentSidebar'
 import { Outlet } from 'react-router'
 import { RiGraduationCapFill } from 'react-icons/ri';
-import Navbar from '../mainPage/ProfileNav';
+import Navbar from '../../pages/ProfileNav';
 
 const StudentLayout = () => {
   const [isOpen, setIsOpen] = useState(false)

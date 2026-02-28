@@ -4,8 +4,7 @@ import StudentCharts from "./adminDashboard/StudentsChart";
 import NoticeBoard from "./adminDashboard/NoticeBoard";
 import StatsCards from "./adminDashboard/StatsCard";
 import CalendarCard from "./adminDashboard/CalendarCard ";
-import EyeAnimation from "./adminDashboard/EyeAnimation ";
-import AnalogClock from "./adminDashboard/AnalogClock";
+
 
 const AdminDashboard = () => {
   return (
@@ -18,42 +17,19 @@ const AdminDashboard = () => {
         <div className=" lg:col-span-8 flex flex-col gap-6">
           <WelcomeCard />
 
-          {/* Charts + Eye + Clock */}
-          <div className="
-            flex 
-            flex-col md:flex-row 
-            md:items-center 
-            md:justify-between 
-          ">
-            <div className="w-1/3 hidden md:flex">
-              <StudentCharts />
-            </div>
 
-            <div className="w-full md:w-2/3 flex gap-5 justify-between">
-              <div className="w-1/2  md:w-full flex justify-center">
-                <EyeAnimation />
-              </div>
 
-              <div className="w-1/2 md:w-full flex justify-center ">
-                <div className="scale-75 sm:scale-90 md:scale-100">
-                  <AnalogClock />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Notice Board */}
-          <NoticeBoard />
+          <div className="">
+    <NoticeBoard />
+</div>
         </div>
 
         {/* RIGHT SECTION */}
         <div className="lg:col-span-4 flex flex-col gap-6">
 
-          <div className="flex w-full justify-between">
+          <div className="flex w-full justify-between gap-3">
             <StatsCards />
-            <div className="flex md:hidden">
               <StudentCharts />
-            </div>
           </div>
 
           <CalendarCard />
