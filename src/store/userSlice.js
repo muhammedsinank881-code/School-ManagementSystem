@@ -15,9 +15,14 @@ const userSlice = createSlice({
     logout(state) {
       state.user = null;
       localStorage.removeItem("user");
+    },
+    updateUser(state, action) {
+      // Merge existing user data with updated fields
+      state.user = { ...state.user, ...action.payload };
+      localStorage.setItem("user", JSON.stringify(state.user));
     }
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, updateUser } = userSlice.actions;
 export default userSlice.reducer;

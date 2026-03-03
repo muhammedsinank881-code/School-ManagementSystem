@@ -6,17 +6,29 @@ import { RiGraduationCapFill } from "react-icons/ri";
 import { LuLogOut } from "react-icons/lu";
 import { NavLink, useNavigate } from "react-router";
 import { FaUserCheck } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+
 
 
 const StudentSidebar = ({ closeSidebar }) => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate()  
+ 
   const SidebarIcons = [
       { id: 1, name: "Dashboard", icon: <BiHomeAlt2 />, path: "/student-dashboard" },
       { id: 2, name: "Teachers", icon: <IoMdContacts />, path: "/student-dashboard/teachers" },
-      { id: 3, name: "Timetable", icon: <MdClass />, path: "/student-dashboard/timetable" },
-      { id: 4, name: "Attendance", icon: <FaUserCheck />, path: "/student-dashboard/attendace" },
+      // { id: 3, name: "Timetable", icon: <MdClass />, path: "/student-dashboard/timetable" },
+      // { id: 4, name: "Attendance", icon: <FaUserCheck />, path: "/student-dashboard/attendance" },
       { id: 5, name: "Events", icon: <MdEventAvailable />, path: "/student-dashboard/events" },  
       { id: 6, name: "settings", icon: <IoMdSettings />, path: "/student-dashboard/settings" },  
     ];
+
+     const handleLogout = () => {
+  dispatch(logout());
+  navigate("/login");
+  }
+
   return (
     <div className="flex flex-col justify-between  p-3 bg-gray-700 text-white h-full w-full rounded-2xl">
       <div className=" ">
@@ -44,7 +56,8 @@ const StudentSidebar = ({ closeSidebar }) => {
         </div>
       </div>
 
-      <div className="flex items-center gap-3 w-full p-2 hover:bg-blue-600 rounded-md"><LuLogOut />Logout</div>
+      <div onClick={handleLogout}
+      className="flex items-center gap-3 w-full p-2 hover:bg-blue-600 rounded-md"><LuLogOut />Logout</div>
     </div>
   );
 };

@@ -1,8 +1,12 @@
 import React from "react";
 import { FaUser, FaCamera } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const StudentSettings = () => {
-  return (
+
+const user = useSelector(state => state.user.user)
+
+return (
     <div className="bg-gray-100 flex items-center justify-center p-4">
 
       <div className="bg-white rounded-2xl shadow-lg w-full 
@@ -35,7 +39,7 @@ const StudentSettings = () => {
 
               <div className="relative">
                 <img
-                  src="https://randomuser.me/api/portraits/men/48.jpg"
+                  src={user?.profileImage || user?.avatar}
                   alt="student profile"
                   className="w-28 h-28 rounded-full object-cover"
                 />
@@ -53,7 +57,7 @@ const StudentSettings = () => {
                 </label>
                 <input
                   type="text"
-                  defaultValue="Ayaan Rahman"
+                  defaultValue={user?.name}
                   className="w-full mt-2 p-3 bg-gray-200 rounded-md cursor-not-allowed"
                   readOnly
                 />
@@ -65,7 +69,7 @@ const StudentSettings = () => {
                 </label>
                 <input
                   type="email"
-                  defaultValue="ayaan.rahman@student.edu"
+                  defaultValue={user?.email}
                   className="w-full mt-2 p-3 bg-gray-200 rounded-md cursor-not-allowed"
                   readOnly
                 />
@@ -77,7 +81,7 @@ const StudentSettings = () => {
                 </label>
                 <input
                   type="text"
-                  defaultValue="+91 98765 43210"
+                  defaultValue={user?.phone}
                   className="w-full mt-2 p-3 bg-gray-200 rounded-md cursor-not-allowed"
                   readOnly
                 />
@@ -89,7 +93,7 @@ const StudentSettings = () => {
                 </label>
                 <input
                   type="text"
-                  defaultValue="Grade 10 – Science"
+                  defaultValue={`${user?.className} - ${user?.division}`}
                   className="w-full mt-2 p-3 bg-gray-200 rounded-md cursor-not-allowed"
                   readOnly
                 />
@@ -101,7 +105,7 @@ const StudentSettings = () => {
                 </label>
                 <input
                   type="text"
-                  defaultValue="STU-2024-0198"
+                  defaultValue={user?.studentId}
                   className="w-full mt-2 p-3 bg-gray-200 rounded-md cursor-not-allowed"
                   readOnly
                 />

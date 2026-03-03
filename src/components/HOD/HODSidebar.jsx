@@ -1,33 +1,33 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../store/userSlice";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import { BiHomeAlt2 } from "react-icons/bi";
 import { PiStudentFill } from "react-icons/pi";
-import { MdEventAvailable } from "react-icons/md";
+import { MdClass, MdEventAvailable } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 import { IoMdContacts } from "react-icons/io";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { LuLogOut } from "react-icons/lu";
+import { NavLink, useNavigate } from "react-router";
+import { FaUserCheck } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 
 
-const AdminSideBar= ({ closeSidebar }) => {
+const TeachSidebar= ({ closeSidebar }) => {
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const SidebarIcons = [
-    { id: 1, name: "Dashboard", icon: <BiHomeAlt2 />, path: "/admin-dashboard" },
-    { id: 2, name: "Teachers", icon: <IoMdContacts />, path: "/admin-dashboard/teachers" },
-    { id: 3, name: "Students", icon: <PiStudentFill />, path: "/admin-dashboard/students" },
-    { id: 4, name: "Events", icon: <MdEventAvailable />, path: "/admin-dashboard/events" },
-    { id: 5, name: "Settings", icon: <IoMdSettings />, path: "/admin-dashboard/settings" },
+    { id: 1, name: "Dashboard", icon: <BiHomeAlt2 />, path: "/hod-dashboard" },
+    { id: 2, name: "Students", icon: <IoMdContacts />, path: "/hod-dashboard/students" },
+    // { id: 3, name: "Timetable", icon: <MdClass />, path: "/hod-dashboard/timetable" },
+    { id: 4, name: "Events", icon: <MdEventAvailable />, path: "/hod-dashboard/events" },
+    // { id: 5, name: "attendance", icon: <FaUserCheck/>, path: "/hod-dashboard/attendance" },  
+    { id: 6, name: "settings", icon: <IoMdSettings />, path: "/hod-dashboard/settings" },  
   ];
 
   const handleLogout = () => {
   dispatch(logout());
   navigate("/login");
-};
+  }
   return (
     <div className="flex flex-col justify-between  p-3 bg-gray-700 text-white h-full w-full rounded-2xl">
       <div className=" ">
@@ -41,7 +41,7 @@ const AdminSideBar= ({ closeSidebar }) => {
             <NavLink
               key={items.id}
               to={items.path}
-              end={items.path === '/admin-dashboard'}
+              end={items.path === '/hod-dashboard'}
               onClick={closeSidebar}
               className={({ isActive }) =>
                 `flex items-center gap-3 p-2 w-full rounded-md 
@@ -61,4 +61,4 @@ const AdminSideBar= ({ closeSidebar }) => {
   );
 };
 
-export default AdminSideBar;
+export default TeachSidebar;

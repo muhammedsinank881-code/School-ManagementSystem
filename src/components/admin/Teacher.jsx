@@ -4,7 +4,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
 import { HiViewGrid } from "react-icons/hi";
 import { IoSearch, IoClose } from "react-icons/io5";
-import TeacherForm from './TeacherForm'
+import TeacherForm from './teacherForm/TeacherForm'
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTeacher, updateTeacher } from "../../store/teachersSlice";
 
@@ -301,7 +301,7 @@ export const Teacher = () => {
                                     {filteredTeachers.map((teacher) => (
                                         <div
                                             key={teacher.id}
-                                            className="bg-gray-100 rounded-lg shadow-md p-4 text-center hover:shadow-lg transition cursor-pointer hover:scale-105 transform transition-all duration-200"
+                                            className="bg-gray-100 rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-all cursor-pointer hover:scale-105 transform transition-all duration-200"
                                         >
                                             {/* Image */}
                                             <img

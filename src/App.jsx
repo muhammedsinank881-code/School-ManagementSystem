@@ -21,6 +21,8 @@ import TTimetable from "./components/teachers/teachers/TTimetable";
 import TAttendance from "./components/teachers/teachers/TAttendance";
 import TSettings from "./components/teachers/teachers/TSettings";
 
+// HOD imports 
+import HODLayout from './components/HOD/HODLayout'
 
 // Student imports
 import StudentLayout from "./components/student/StudentLayout";
@@ -50,54 +52,42 @@ const App = () => {
       </Route>
 
       {/* Teacher Routes */}
-      <Route 
-        path="/teachers-dashboard" 
-        element={
-          <ProtectedRoute allowed={["Teacher", "HOD"]}>
+      <Route path="/teachers-dashboard" element={
+          <ProtectedRoute allowed={["Teacher"]}>
             <TeacherLayout />
-          </ProtectedRoute>
-        }
-      >
+          </ProtectedRoute> } >
         <Route index element={<TDashboard />} />
         <Route path="students" element={<TStudents />} />
-        <Route path="timetable" element={<TTimetable />} />
+        {/* <Route path="timetable" element={<TTimetable />} /> */}
         <Route path="events" element={<Events />} />
-        <Route path="attendance" element={<TAttendance />} />
+        {/* <Route path="attendance" element={<TAttendance />} /> */}
         <Route path="settings" element={<TSettings />} />
       </Route>
 
       {/* HOD Routes (if you want separate layout) */}
       <Route 
-        path="/hod-dashboard" 
-        element={
+        path="/hod-dashboard" element={
           <ProtectedRoute allowed={["HOD"]}>
-            <TeacherLayout />
-          </ProtectedRoute>
-        }
-      >
+            <HODLayout />
+          </ProtectedRoute>} >
         <Route index element={<TDashboard/>} />
-        <Route path="teachers" element={<Teacher />} />
         <Route path="students" element={<Students />} />
-        <Route path="timetable" element={<TTimetable />} />
+        {/* <Route path="timetable" element={<TTimetable />} /> */}
         <Route path="events" element={<Events />} />
-        <Route path="attendance" element={<TAttendance />} />
+        {/* <Route path="attendance" element={<TAttendance />} /> */}
         <Route path="settings" element={<TSettings />} />
       </Route>
 
       {/* Student Routes */}
-      <Route 
-        path="/student-dashboard" 
-        element={
+      <Route path="/student-dashboard" element={
           <ProtectedRoute allowed={["Student"]}>
             <StudentLayout />
-          </ProtectedRoute>
-        }
-      >
+          </ProtectedRoute> } >
         <Route index element={<StudentDashboard />} />
         <Route path="teachers" element={<STeachers />} />
-        <Route path="timetable" element={<Timetable />} />
+        {/* <Route path="timetable" element={<Timetable />} /> */}
         <Route path="events" element={<Events />} />
-        <Route path="attendance" element={<SAttendance />} />
+        {/* <Route path="attendance" element={<SAttendance />} /> */}
         <Route path="settings" element={<StudentSettings />} />
       </Route>
 

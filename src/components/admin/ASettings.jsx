@@ -60,8 +60,7 @@ const Settings = () => {
 
               <div className="relative">
                 <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="profile"
+                  src=""
                   className="w-28 h-28 rounded-full object-cover"
                 />
                 {isEditing && (

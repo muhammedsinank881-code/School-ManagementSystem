@@ -268,9 +268,6 @@ export const Students = () => {
                     <div className='flex justify-between items-center'>
                         <h1 className='text-2xl font-bold'>Students</h1>
                         <div className='flex gap-3'>
-                            <div className='text-sm text-gray-600 bg-white px-3 py-1 rounded-full'>
-                                Total: {students.length} student{students.length !== 1 ? 's' : ''}
-                            </div>
                             <button 
                                 className='bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700'
                                 onClick={() => setIsOpen(true)}>

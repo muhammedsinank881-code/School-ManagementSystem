@@ -7,17 +7,27 @@ import { RiGraduationCapFill } from "react-icons/ri";
 import { LuLogOut } from "react-icons/lu";
 import { NavLink, useNavigate } from "react-router";
 import { FaUserCheck } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 
 
 const TeachSidebar= ({ closeSidebar }) => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const SidebarIcons = [
     { id: 1, name: "Dashboard", icon: <BiHomeAlt2 />, path: "/teachers-dashboard" },
     { id: 2, name: "Students", icon: <IoMdContacts />, path: "/teachers-dashboard/students" },
-    { id: 3, name: "Timetable", icon: <MdClass />, path: "/teachers-dashboard/timetable" },
+    // { id: 3, name: "Timetable", icon: <MdClass />, path: "/teachers-dashboard/timetable" },
     { id: 4, name: "Events", icon: <MdEventAvailable />, path: "/teachers-dashboard/events" },
-    { id: 5, name: "Attendace", icon: <FaUserCheck/>, path: "/teachers-dashboard/attendace" },  
+    // { id: 5, name: "attendance", icon: <FaUserCheck/>, path: "/teachers-dashboard/attendance" },  
     { id: 6, name: "settings", icon: <IoMdSettings />, path: "/teachers-dashboard/settings" },  
   ];
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
   return (
     <div className="flex flex-col justify-between  p-3 bg-gray-700 text-white h-full w-full rounded-2xl">
       <div className=" ">
@@ -45,7 +55,8 @@ const TeachSidebar= ({ closeSidebar }) => {
         </div>
       </div>
 
-      <div className="flex items-center gap-3 w-full p-2 hover:bg-blue-600 rounded-md"><LuLogOut />Logout</div>
+      <div onClick={handleLogout}
+       className="flex items-center gap-3 w-full p-2 hover:bg-blue-600 rounded-md"><LuLogOut />Logout</div>
     </div>
   );
 };
